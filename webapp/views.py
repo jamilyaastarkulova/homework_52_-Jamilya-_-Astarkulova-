@@ -41,7 +41,7 @@ def todo_create_view(request):
 def todo_update_view(request, pk):
     todo = get_object_or_404(Todo, pk=pk)
     if request.method == 'GET':
-        form = TodoForm(initial={'title': todo.todo, 'task': todo.task})
+        form = TodoForm(initial={'title': todo.title, 'task': todo.task})
         return render(request, 'update_todo.html', {'todo': todo, 'form': form})
     elif request.method == 'POST':
         form = TodoForm(data=request.POST)
