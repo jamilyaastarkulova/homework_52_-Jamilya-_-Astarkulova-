@@ -1,7 +1,7 @@
 from django.contrib import admin
 from webapp.models import Todo
 
-admin.site.register(Todo)
+#admin.site.register(Todo)
 
 # class ArticleAdmin(admin.ModelAdmin):
 #     pass
@@ -11,6 +11,6 @@ admin.site.register(Todo)
 @admin.register(Todo)
 class TodoAdmin(admin.ModelAdmin):
     list_display = ('id', 'task')
-    fields = ('id', 'task', 'status', 'deadline')
+    fields = ('task', 'status', 'deadline')
     # exclude = []
-    readonly_fields = ('id', 'deadline')
+    readonly_fields = ('id',)
