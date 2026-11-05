@@ -9,5 +9,5 @@ class TodoForm(forms.Form):
         ('in_progress', 'В процессе'),
         ('done', 'Сделано')
     ]
-    status = forms.CharField(choices=STATUS_CHOICES, label='Статус')
+    status = forms.ChoiceField(choices=STATUS_CHOICES, label='Статус')
     deadline = forms.DateField(required=False, label="Дата выполнения")
