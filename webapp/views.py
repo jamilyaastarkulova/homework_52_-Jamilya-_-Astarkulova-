@@ -31,8 +31,10 @@ def todo_create_view(request):
         form = TodoForm(data= request.POST)
         if form.is_valid():
             task = form.cleaned_data.get('task')
-            todo = Todo.objects.create(task=task)
-            return redirect('todo_view', pk=todo.id)
+            deadline = form.cleaned_data.get('deadline')
+            status = form.cleaned_data.get('status')
+            todo = Todo.objects.create(task=task, deadline=deadline, status=status)
+            return redirect('todo_view', pk=todo.pk)
         else:
             return render(request, 'create_todo.html', {'form': form})
 
