@@ -30,29 +30,11 @@ def todo_create_view(request):
     elif request.method == 'POST':
         form = TodoForm(data= request.POST)
         if form.is_valid():
-            title = form.cleaned_data.get('title')
             task = form.cleaned_data.get('task')
-            todo = Todo.objects.create(title=title, task=task)
+            todo = Todo.objects.create(task=task)
             return redirect('todo_view', pk=todo.id)
         else:
             return render(request, 'create_todo.html', {'form': form})
-
-
-def todo_update_view(request, pk):
-    todo = get_object_or_404(Todo, pk=pk)
-    if request.method == 'GET':
-        form = TodoForm(initial={'title': todo.title, 'task': todo.task})
-        return render(request, 'update_todo.html', {'todo': todo, 'form': form})
-    elif request.method == 'POST':
-        form = TodoForm(data=request.POST)
-        if form.is_valid():
-            todo.title = form.cleaned_data.get('title')
-            todo.task = form.cleaned_data.get('task')
-            todo.save()
-            return redirect('todo_view', pk=todo.id)
-        else:
-            return render(request, 'update_todo.html', {'todo': todo, 'form': form})
-
 
 
 def todo_delete_view(request, pk):

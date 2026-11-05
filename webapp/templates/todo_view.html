@@ -12,11 +12,8 @@
 
     <div class="card">
         <div class="card-body">
-            <h3 class="mt-2 mb-0 ">Title: {{ todo.title }}</h3>
             <p class="card-text fg-1">task: {{ todo.task }}</p>
             <div>
-                <a role="button" href="{% url 'todo_update' todo.pk %}"
-                   class="btn-solid theme-success">Обновить</a>
                 <a role="button"
                    href="{% url 'todo_delete' todo.pk %}"
                    class="btn-solid theme-danger">Удалить</a>

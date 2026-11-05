@@ -10,12 +10,10 @@
 
     <div class="card">
         <div class="card-body">
-            <p>Вы действительно хотите удалить задание "{{ todo.title }}"?</p>
             <form method="post">
                 {% csrf_token %}
-                <button type="submit">Да</button>
+                <button type="submit"></button>
             </form>
-            <a href="{% url 'todo_view' todo.pk %}">Нет</a>
         </div>
     </div>
 {% endblock %}
