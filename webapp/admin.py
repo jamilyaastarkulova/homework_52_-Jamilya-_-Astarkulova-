@@ -1,7 +1,7 @@
 from django.contrib import admin
 from webapp.models import Todo
 
-# admin.site.register(Article)
+admin.site.register(Todo)
 
 # class ArticleAdmin(admin.ModelAdmin):
 #     pass
