@@ -11,6 +11,6 @@ from webapp.models import Todo
 @admin.register(Todo)
 class TodoAdmin(admin.ModelAdmin):
     list_display = ('id', 'task')
-    fields = ('id', 'task', 'status', 'created_at')
+    fields = ('id', 'task', 'status', 'deadline')
     # exclude = []
-    readonly_fields = ('id', 'created_at')
+    readonly_fields = ('id', 'deadline')
