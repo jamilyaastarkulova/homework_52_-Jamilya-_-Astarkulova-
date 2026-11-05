@@ -13,6 +13,8 @@
     <div class="card">
         <div class="card-body">
             <p class="card-text fg-1">task: {{ todo.task }}</p>
+            <p>status: {{ todo.status }}</p>
+            <p>deadline: {{ todo.deadline }}</p>
             <div>
                 <a role="button"
                    href="{% url 'todo_delete' todo.pk %}"
